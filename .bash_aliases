@@ -1,4 +1,3 @@
-new content
 export PATH="${PATH}:/mnt/c/Users/lobo/Seafile/drive/scripts/wow/luaparser/"
 export PATH="${PATH}:/home/lobo/bin"
 export PATH="${PATH}:/home/lobo/scripts/tools/"
