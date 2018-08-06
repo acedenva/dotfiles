@@ -9,4 +9,4 @@ tmux new-session -d -s basic;\
 tmux split-window -t basic -h;\
 tmux attach -t basic"
 
-source ${HOME}/.secrets
+source ${HOME}/.secrets/ssh
