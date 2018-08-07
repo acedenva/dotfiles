@@ -18,6 +18,11 @@ set nowrap
 set tabstop=2
 set splitbelow
 set splitright
+set smartindent
+set shiftwidth=2
+
+set foldmethod=syntax
+set foldlevelstart=20
 
 syntax on
 colorscheme gruvbox
