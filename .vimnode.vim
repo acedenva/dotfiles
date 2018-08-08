@@ -14,18 +14,18 @@ function! Focus(bufname)
 endfunction
 
 function! Startnode()
-	let nroutput = bufwinnr('noteoutput')
+	let nroutput = bufwinnr('nodeoutput')
 	let scriptpath = expand('%:p')
 	let options={'callback':'MyCallback','close_cb':'MyCloseHandler'}
 	let command = 'node ' . scriptpath
 
 	write!
 	if (nroutput > 0) 
-		call Focus("noteoutput")	
+		call Focus("nodeoutput")	
 		1,$d
 	else	
 		vsplit	
-		edit noteoutput
+		edit nodeoutput
 	endif
 
 	let nodejob = job_start(command, options)
