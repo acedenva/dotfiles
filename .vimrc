@@ -23,6 +23,11 @@ syntax on
 colorscheme gruvbox
 set background=dark
 
+set foldmethod=syntax
+set foldlevelstart=10
+
+set smartindent
+
 " myColor Classes for Gruvbox
 hi! link myComment GruvboxBg4
 hi! link myString GruvboxRed
