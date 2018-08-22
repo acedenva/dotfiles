@@ -2,7 +2,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
-Plugin 'valloric/youcompleteme'  " #cd ~/.vim/bundle/youcompleteme; git submodule update --init --recursive; ./install.py --js-completer;
+Plugin 'valloric/youcompleteme'  " #sudo apt-get install python-dev python3-dev build-essential cmake; cd ~/.vim/bundle/youcompleteme; git submodule update --init --recursive; ./install.py --js-completer;
 Plugin 'pangloss/vim-javascript'
 call vundle#end()
 
@@ -18,6 +18,11 @@ set nowrap
 set tabstop=2
 set splitbelow
 set splitright
+set smartindent
+set shiftwidth=2
+
+set foldmethod=syntax
+set foldlevelstart=20
 
 syntax on
 colorscheme gruvbox
