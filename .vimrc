@@ -2,8 +2,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
-Plugin 'valloric/youcompleteme'  " #sudo apt-get update; sudo apt-get install python-dev python3-dev build-essential cmake nodejs; cd ~/.vim/bundle/youcompleteme; git submodule update --init --recursive; ./install.py --js-completer;
 Plugin 'pangloss/vim-javascript'
+Plugin 'valloric/youcompleteme'  
+" #apt-get update; sudo apt-get -y install python-dev python3-dev build-essential cmake nodejs npm;
+" #cd ~/.vim/bundle/youcompleteme; git submodule update --init --recursive; ./install.py --js-completer;
 call vundle#end()
 
 let mapleader="\<CR>"
