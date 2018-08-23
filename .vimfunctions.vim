@@ -40,4 +40,6 @@ endfunction
 
 nmap <Leader>v :call Start('node')<CR>
 vmap <Leader>v "cy<ESC>:call Start('node',expand(@c))<CR>
+nmap <Leader>b :call Start('bash')<CR>
 vmap <Leader>b "by<ESC>:call Start('bash',expand(@b))<CR> 
+
