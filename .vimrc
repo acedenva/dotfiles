@@ -7,14 +7,19 @@ Plugin 'valloric/youcompleteme'
 " #apt-get update; sudo apt-get -y install python-dev python3-dev build-essential cmake nodejs npm;
 " #cd ~/.vim/bundle/youcompleteme; git submodule update --init --recursive; ./install.py --js-completer;
 call vundle#end()
+so ${HOME}/.vimfunctions.vim
 
 let mapleader="\<CR>"
 imap jk <ESC>
 
 nmap <Leader>c :tabnew $MYVIMRC<CR>
+nmap <Leader>C :tabnew ${HOME}/.vimfunctions.vim<CR>
 nmap <Leader>r :so %<CR>
-nmap <Leader>q :set relativenumber!<CR>
-so ${HOME}/.vimfunctions.vim
+nmap <Leader>q :set relativenumber!<CR>:set number!<CR>
+nmap <Leader>v :call Start('node')<CR>
+vmap <Leader>V "cy<ESC>:call Start('node',expand(@c))<CR>
+nmap <Leader>b :call Start('bash')<CR>
+vmap <Leader>B "by<ESC>:call Start('bash',expand(@b))<CR> 
 
 set nowrap
 set tabstop=2
@@ -25,6 +30,7 @@ set shiftwidth=2
 
 set foldmethod=syntax
 set foldlevelstart=20
+filetype plugin indent on
 
 syntax on
 colorscheme gruvbox

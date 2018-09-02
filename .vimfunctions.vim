@@ -31,15 +31,11 @@ function! Start(p, ...)
 		call Focus("nodeoutput")	
 		1,$d
 	else	
-		vsplit	
+		split	
+		resize 15-
 		edit nodeoutput
 	endif
 
 	let options={'callback':'MyCallback','close_cb':'MyCloseHandler'}
 	let nodejob = job_start(command, options)
 endfunction
-
-nmap <Leader>v :call Start('node')<CR>
-vmap <Leader>v "cy<ESC>:call Start('node',expand(@c))<CR>
-nmap <Leader>b :call Start('bash')<CR>
-vmap <Leader>b "by<ESC>:call Start('bash',expand(@b))<CR> 
