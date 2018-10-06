@@ -14,12 +14,13 @@ imap jk <ESC>
 
 nmap <Leader>c :tabnew $MYVIMRC<CR>
 nmap <Leader>C :tabnew ${HOME}/.vimfunctions.vim<CR>
-nmap <Leader>r :so %<CR>
+nmap <Leader>s :so %<CR>
 nmap <Leader>q :set relativenumber!<CR>:set number!<CR>
 nmap <Leader>v :call Start('node')<CR>
-vmap <Leader>V "cy<ESC>:call Start('node',expand(@c))<CR>
+vmap <Leader>v "cy<ESC>:call Start('node',expand(@c))<CR>
 nmap <Leader>b :call Start('bash')<CR>
-vmap <Leader>B "by<ESC>:call Start('bash',expand(@b))<CR> 
+vmap <Leader>b "by<ESC>:call Start('bash',expand(@b))<CR> 
+nmap <Leader>g :call Start('crdebug')<CR>
 
 set nowrap
 set tabstop=2

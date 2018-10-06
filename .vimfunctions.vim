@@ -20,6 +20,9 @@ function! Start(p, ...)
 		let command = 'node -e "' . a:1 . '"'
 	elseif (a:0) && (program == 'bash')
 		let command = 'bash -c "' . a:1 . '"'
+	elseif (program == 'crdebug')
+		%yank p	
+		let command = 'node /home/lobo/scripts/crdebug/crdebug.js "' . @p . '"'  "should be a relative path, npm -g install
 	else 
 		write!
 		let scriptpath = expand('%:p')
