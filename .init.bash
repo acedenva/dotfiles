@@ -7,8 +7,8 @@ fi
 cloud='/mnt/d/Cloud'
 if [ -d ${cloud} ]; then
 	rsync -r -u ${cloud}/crypt/unix/.ssh ${HOME}/
-	ln -s ${cloud}/drive/scripts ${HOME}/scripts
 	ln -s ${cloud}/crypt/unix/.secrets.bash ${HOME}/.secrets.bash
+	ln -s ${cloud}/drive/scripts ${HOME}/scripts
 	chmod -R 500 ${HOME}/.ssh ${HOME}/scripts ${HOME}/.secrets.bash
 fi
 
