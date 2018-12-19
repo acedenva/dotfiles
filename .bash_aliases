@@ -9,3 +9,6 @@ alias tmux-basic="\
 	tmux new-session -d -s basic
 	tmux split-window -t basic -h
 	tmux attach -t basic"
+
+
+export CHROME_DEVEL_SANDBOX=/usr/local/sbin/chrome-devel-sandbox

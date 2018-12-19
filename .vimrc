@@ -1,5 +1,6 @@
 set rtp+=~/.vim/bundle/Vundle.vim 
 call vundle#begin()
+Plugin 'JiangMiao/auto-pairs'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
@@ -21,24 +22,31 @@ vmap <Leader>v "cy<ESC>:call Start('node',expand(@c))<CR>
 nmap <Leader>b :call Start('bash')<CR>
 vmap <Leader>b "by<ESC>:call Start('bash',expand(@b))<CR> 
 nmap <Leader>g :call Start('crdebug')<CR>
-
+nmap <Leader><ESC> :silent! !bash -c 'pkill node; pkill chrome'<CR>:redraw!<CR>
 set nowrap
-set tabstop=2
 set splitbelow
 set splitright
+
+filetype plugin indent on
 set smartindent
 set shiftwidth=2
+set tabstop=2
 
 set foldmethod=syntax
 set foldlevelstart=20
-filetype plugin indent on
 
+" for tmux
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 syntax on
 colorscheme gruvbox
 set background=dark
+
+" http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor"
+nmap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " myColor Classes for Gruvbox
 hi! link myComment GruvboxBg4
@@ -49,6 +57,7 @@ hi! link myFunction GruvboxPurple
 hi! link myVimHighlight Cursor
 hi! link myFunctionCall GruvboxYellow
 hi! link myObject GruvboxOrangeBold
+hi! link jsGlobalNodeObjects GruvboxYellow
 
 " myColor Adjustemnts - Code
 hi! default link Comment myComment
