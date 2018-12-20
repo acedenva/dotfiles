@@ -23,7 +23,7 @@ nmap <Leader>b :call Start('bash')<CR>
 vmap <Leader>b "by<ESC>:call Start('bash',expand(@b))<CR> 
 nmap <Leader>g :call Start('crdebug')<CR>
 nmap <Leader><ESC> :silent! !bash -c 'pkill node; pkill chrome'<CR>:redraw!<CR>
-set nowrap
+
 set splitbelow
 set splitright
 
@@ -34,6 +34,8 @@ set tabstop=2
 
 set foldmethod=syntax
 set foldlevelstart=20
+set list
+set lcs=tab:\|\ 
 
 " for tmux
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
