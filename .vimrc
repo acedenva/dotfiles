@@ -5,18 +5,26 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
 Plugin 'valloric/youcompleteme'  
+Plugin 'christoomey/vim-tmux-navigator'
 " #apt-get update; sudo apt-get -y install python-dev python3-dev build-essential cmake nodejs npm;
 " #cd ~/.vim/bundle/youcompleteme; git submodule update --init --recursive; ./install.py --js-completer;
 call vundle#end()
 so ${HOME}/.vimfunctions.vim
 
-let mapleader="\<CR>"
 imap jk <ESC>
+let mapleader="\<CR>"
+
+let tmux_navigator_no_mappings = 1
+nmap <silent> <C-s>h :TmuxNavigateLeft<cr>
+nmap <silent> <C-s>j :TmuxNavigateDown<cr>
+nmap <silent> <C-s>k :TmuxNavigateUp<cr>
+nmap <silent> <C-s>l :TmuxNavigateRight<cr>
 
 nmap <Leader>c :tabnew $MYVIMRC<CR>
 nmap <Leader>C :tabnew ${HOME}/.vimfunctions.vim<CR>
 nmap <Leader>s :so %<CR>
 nmap <Leader>q :set relativenumber!<CR>:set number!<CR>
+nmap <Leader>a :set wrap!<CR> 
 nmap <Leader>v :call Start('node')<CR>
 vmap <Leader>v "cy<ESC>:call Start('node',expand(@c))<CR>
 nmap <Leader>b :call Start('bash')<CR>
@@ -24,6 +32,7 @@ vmap <Leader>b "by<ESC>:call Start('bash',expand(@b))<CR>
 nmap <Leader>g :call Start('crdebug')<CR>
 nmap <Leader><ESC> :silent! !bash -c 'pkill node; pkill chrome'<CR>:redraw!<CR>
 
+set nowrap
 set splitbelow
 set splitright
 
