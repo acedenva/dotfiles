@@ -21,16 +21,19 @@ nmap <silent> <C-s>j :TmuxNavigateDown<cr>
 nmap <silent> <C-s>k :TmuxNavigateUp<cr>
 nmap <silent> <C-s>l :TmuxNavigateRight<cr>
 
-nmap <Leader>c :tabnew $MYVIMRC<CR>
-nmap <Leader>C :tabnew ${HOME}/.vimfunctions.vim<CR>
+nmap <Leader>c "*y<CR>
+vmap <Leader>c "*y<CR>
+nmap <Leader>v "*p<CR>
+nmap <Leader>z :tabnew $MYVIMRC<CR>
+nmap <Leader>Z :tabnew ${HOME}/.vimfunctions.vim<CR>
 nmap <Leader>s :so %<CR>
 nmap <Leader>q :set relativenumber!<CR>:set number!<CR>
 nmap <Leader>a :set wrap!<CR> 
-nmap <Leader>v :call Start('node')<CR>
-vmap <Leader>v "cy<ESC>:call Start('node',expand(@c))<CR>
+nmap <Leader>g :call Start('node')<CR>
+vmap <Leader>g "cy<ESC>:call Start('node',expand(@c))<CR>
 nmap <Leader>b :call Start('bash')<CR>
 vmap <Leader>b "by<ESC>:call Start('bash',expand(@b))<CR> 
-nmap <Leader>g :call Start('crdebug')<CR>
+nmap <Leader>t :call Start('crdebug')<CR>
 nmap <Leader><ESC> :silent! !bash -c 'pkill node; pkill chrome'<CR>:redraw!<CR>
 
 set nowrap
