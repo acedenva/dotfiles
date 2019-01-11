@@ -6,6 +6,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
 Plugin 'valloric/youcompleteme'  
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'kana/vim-fakeclip'
 " #apt-get update; sudo apt-get -y install python-dev python3-dev build-essential cmake nodejs npm;
 " #cd ~/.vim/bundle/youcompleteme; git submodule update --init --recursive; ./install.py --js-completer;
 call vundle#end()
