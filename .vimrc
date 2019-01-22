@@ -5,10 +5,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
 Plugin 'valloric/youcompleteme'  
+" #apt-get update; apt-get -y install python-dev python3-dev build-essential cmake nodejs npm;
+" #cd ~/.vim/bundle/youcompleteme; git submodule update --init --recursive; ./install.py --js-completer;
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'kana/vim-fakeclip'
-" #apt-get update; sudo apt-get -y install python-dev python3-dev build-essential cmake nodejs npm;
-" #cd ~/.vim/bundle/youcompleteme; git submodule update --init --recursive; ./install.py --js-completer;
 call vundle#end()
 so ${HOME}/.vimfunctions.vim
 
@@ -29,8 +29,8 @@ nmap <Leader>Z :tabnew ${HOME}/.vimfunctions.vim<CR>
 nmap <Leader>s :so %<CR>
 nmap <Leader>q :set relativenumber!<CR>:set number!<CR>
 nmap <Leader>a :set wrap!<CR> 
-nmap <Leader>g :call Start('node')<CR>
-vmap <Leader>g "cy<ESC>:call Start('node',expand(@c))<CR>
+nmap <Leader>f :call Start('node')<CR>
+vmap <Leader>f "cy<ESC>:call Start('node',expand(@c))<CR>
 nmap <Leader>b :call Start('bash')<CR>
 vmap <Leader>b "by<ESC>:call Start('bash',expand(@b))<CR> 
 nmap <Leader>t :call Start('crdebug')<CR>
