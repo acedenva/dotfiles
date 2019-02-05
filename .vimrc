@@ -21,20 +21,21 @@ nmap <silent> <C-s>j :TmuxNavigateDown<cr>
 nmap <silent> <C-s>k :TmuxNavigateUp<cr>
 nmap <silent> <C-s>l :TmuxNavigateRight<cr>
 
-nmap <Leader>c "*y<CR>
-vmap <Leader>c "*y<CR>
-nmap <Leader>v "*p<CR>
-nmap <Leader>z :tabnew $MYVIMRC<CR>
-nmap <Leader>Z :tabnew ${HOME}/.vimfunctions.vim<CR>
-nmap <Leader>s :so %<CR>
-nmap <Leader>q :set relativenumber!<CR>:set number!<CR>
-nmap <Leader>a :set wrap!<CR> 
-nmap <Leader>f :call Start('node')<CR>
-vmap <Leader>f "cy<ESC>:call Start('node',expand(@c))<CR>
-nmap <Leader>b :call Start('bash')<CR>
-vmap <Leader>b "by<ESC>:call Start('bash',expand(@b))<CR> 
-nmap <Leader>t :call Start('crdebug')<CR>
-nmap <Leader><ESC> :silent! !bash -c 'pkill node; pkill chrome'<CR>:redraw!<CR>
+nmap <silent> <Leader>c "*y<CR>
+vmap <silent> <Leader>c "*y<CR>
+nmap <silent> <Leader>v "*p<CR>
+nmap <silent> <Leader>z :tabnew $MYVIMRC<CR>
+nmap <silent> <Leader>Z :tabnew ${HOME}/.vimfunctions.vim<CR>
+nmap <silent> <Leader>s :so %<CR>
+nmap <silent> <Leader>q :set relativenumber!<CR>:set number!<CR>
+nmap <silent> <Leader>a :set wrap!<CR> 
+nmap <silent> <Leader>d :YcmCompleter GetDoc<CR>
+nmap <silent> <Leader>f :call Start('node')<CR>
+vmap <silent> <Leader>f "cy<ESC>:call Start('node',expand(@c))<CR>
+nmap <silent> <Leader>b :call Start('bash')<CR>
+vmap <silent> <Leader>b "by<ESC>:call Start('bash',expand(@b))<CR> 
+nmap <silent> <Leader>t :call Start('crdebug')<CR>
+nmap <silent> <Leader><ESC> :silent! !bash -c 'pkill node; pkill chrome'<CR>:redraw!<CR>
 
 set nowrap
 set splitbelow
