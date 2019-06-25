@@ -9,6 +9,7 @@ git clone --bare url ~/.dotfiles
 cd ~
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
 ./init.bash
+source .bash_aliases
 ```
 
 
