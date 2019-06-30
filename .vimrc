@@ -9,6 +9,7 @@ Plugin 'valloric/youcompleteme'
 " #cd ~/.vim/bundle/youcompleteme; git submodule update --init --recursive; ./install.py --js-completer;
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'kana/vim-fakeclip'
+Plugin 'posva/vim-vue'
 call vundle#end()
 so ${HOME}/.vimfunctions.vim
 
@@ -51,7 +52,12 @@ set foldlevelstart=20
 set list
 set lcs=tab:\|\ 
 
-" for tmux
+" http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor"
+nmap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" tmux
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
@@ -59,10 +65,8 @@ syntax on
 colorscheme gruvbox
 set background=dark
 
-" http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor"
-nmap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" for vim-vue
+autocmd BufRead,BufNewFile *.vue set filetype=vue
 
 " myColor Classes for Gruvbox
 hi! link myComment GruvboxBg4
