@@ -1,6 +1,5 @@
 set rtp+=~/.vim/bundle/Vundle.vim 
 call vundle#begin()
-Plugin 'JiangMiao/auto-pairs'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
@@ -9,6 +8,8 @@ Plugin 'valloric/youcompleteme'
 " #cd ~/.vim/bundle/youcompleteme; git submodule update --init --recursive; ./install.py --js-completer;
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'kana/vim-fakeclip'
+Plugin 'JiangMiao/auto-pairs'
+Plugin 'alvan/vim-closetag'
 Plugin 'posva/vim-vue'
 call vundle#end()
 so ${HOME}/.vimfunctions.vim
@@ -67,6 +68,9 @@ set background=dark
 
 " for vim-vue
 autocmd BufRead,BufNewFile *.vue set filetype=vue
+
+" for vim-closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
 
 " myColor Classes for Gruvbox
 hi! link myComment GruvboxBg4
