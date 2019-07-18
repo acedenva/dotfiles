@@ -9,6 +9,7 @@ Plugin 'valloric/youcompleteme'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'kana/vim-fakeclip'
 Plugin 'JiangMiao/auto-pairs'
+Plugin 'tpope/vim-surround'
 Plugin 'alvan/vim-closetag'
 Plugin 'posva/vim-vue'
 call vundle#end()
