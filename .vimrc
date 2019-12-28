@@ -1,9 +1,8 @@
 set rtp+=~/.vim/bundle/Vundle.vim 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
-Plugin 'valloric/youcompleteme'  
+" Plugin 'valloric/youcompleteme'  
 " #apt-get update; apt-get -y install python-dev python3-dev build-essential cmake nodejs npm;
 " #cd ~/.vim/bundle/youcompleteme; git submodule update --init --recursive; ./install.py --js-completer;
 Plugin 'christoomey/vim-tmux-navigator'
@@ -12,6 +11,8 @@ Plugin 'JiangMiao/auto-pairs'
 Plugin 'tpope/vim-surround'
 Plugin 'alvan/vim-closetag'
 Plugin 'posva/vim-vue'
+Plugin 'scrooloose/syntastic'
+Plugin 'morhetz/gruvbox'
 call vundle#end()
 so ${HOME}/.vimfunctions.vim
 
