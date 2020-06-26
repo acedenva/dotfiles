@@ -24,3 +24,4 @@ if [ ! -f ${HOME}/.secrets.bash ]; then
 	# export S_serverR=''
 	echo 'no .secrets.bash'	
 fi
+echo "reload .bash_aliases"
