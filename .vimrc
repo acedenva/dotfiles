@@ -17,7 +17,8 @@ call vundle#end()
 so ${HOME}/.vimfunctions.vim
 
 imap jk <ESC>
-let mapleader="\<CR>"
+let mapleader=" "
+" let mapleader="\<CR>"
 
 let tmux_navigator_no_mappings = 1
 nmap <silent> <C-s>h :TmuxNavigateLeft<cr>
@@ -27,18 +28,16 @@ nmap <silent> <C-s>l :TmuxNavigateRight<cr>
 
 nmap <silent> <Leader>c "*y<CR>
 vmap <silent> <Leader>c "*y<CR>
+nmap <silent> <Leader>d :e!<CR>
 nmap <silent> <Leader>v "*p<CR>
 nmap <silent> <Leader>z :tabnew $MYVIMRC<CR>
 nmap <silent> <Leader>Z :tabnew ${HOME}/.vimfunctions.vim<CR>
-nmap <silent> <Leader>s :so %<CR>
 nmap <silent> <Leader>q :set relativenumber!<CR>:set number!<CR>
 nmap <silent> <Leader>a :set wrap!<CR> 
-nmap <silent> <Leader>d :YcmCompleter GetDoc<CR>
 nmap <silent> <Leader>f :call Start('node')<CR>
 vmap <silent> <Leader>f "cy<ESC>:call Start('node',expand(@c))<CR>
-nmap <silent> <Leader>b :call Start('bash')<CR>
-vmap <silent> <Leader>b "by<ESC>:call Start('bash',expand(@b))<CR> 
-nmap <silent> <Leader>t :call Start('crdebug')<CR>
+nmap <silent> <Leader>g :call Start('bash')<CR>
+vmap <silent> <Leader>g "by<ESC>:call Start('bash',expand(@b))<CR> 
 nmap <silent> <Leader><ESC> :silent! !bash -c 'pkill node; pkill chrome'<CR>:redraw!<CR>
 
 set nowrap
