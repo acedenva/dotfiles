@@ -3,21 +3,26 @@
 if [ ! -d ${HOME}/.vim/bundle/Vundle.vim ]; then
 	git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 fi
-repos='/mnt/c/Users/lobo/repos'
-if [ -d ${repos} ]; then
-	ln -s ${repos} ${HOME}
-fi
+# creating symlinks in home for WSL+Seafile  
+if [[ -x $(which powershell.exe) ]]; then
+	winuser=$(powershell.exe -Command '[ENVIRONMENT]::GetEnvironmentVariable("Username")' | sed -r 's/(([a-z]|[0-9])+)/\1/ig')
+	hostname=$(powershell.exe -Command '[ENVIRONMENT]::GetEnvironmentVariable("Computername")' | sed -r s/\n//g)
+	echo ${winuser}
+	sdrive="/mnt/c/Users/${winuser}/Seafile/sdrive"
+	###rchive="/mnt/c/Users/${winuser}/Seafile/rchive"
 
-cloud='/mnt/d/Cloud'
-if [ -d ${cloud} ]; then
-	rsync -rutv ${cloud}/crypt/unix/.ssh ${HOME}/
-	rsync -rutv ${HOME}/.ssh ${cloud}/crypt/unix/
-	ln -s ${cloud}/crypt/unix/.secrets.bash ${HOME}/.secrets.bash
-	ln -s ${cloud}/drive/scripts ${HOME}/scripts
-	chmod -R 700 ${HOME}/.ssh ${HOME}/.secrets.bash
-	chmod -R 770 ${HOME}/scripts 
+	echo ${sdrive}
+	if [[ -d ${sdrive} ]]; then
+		echo ${drive}
+		exit
+		rsync -rutv ${sdrive}/unix/.ssh ${HOME}/
+		rsync -rutv ${HOME}/.ssh ${sdrive}/unix/
+		ln -s ${sdrive}/unix/.secrets.bash ${HOME}/.secrets.bash
+		ln -s ${sdrive}/drive/scripts ${HOME}/scripts
+		chmod -R 700 ${HOME}/.ssh ${HOME}/.secrets.bash
+		chmod -R 770 ${HOME}/scripts 
+	fi
 fi
-
 if [ ! -f ${HOME}/.secrets.bash ]; then
 	# Template .secrets.bash -- maybe with sed
 	# export S_userR=''
