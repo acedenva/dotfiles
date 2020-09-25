@@ -18,9 +18,7 @@ if [[ -x $(which powershell.exe) ]]; then
 		rsync -rutv ${HOME}/.ssh ${sdrive}/keys/${hostname}/
 		rsync -rutv ${sdrive}/keys/${hostname}/.ssh ${HOME}/
 		ln -s ${sdrive}/keys/.secrets.bash ${HOME}/.secrets.bash
-		ln -s ${sdrive}/drive/scripts ${HOME}/scripts
 		chmod -R 700 ${HOME}/.ssh ${HOME}/.secrets.bash
-		chmod -R 770 ${HOME}/scripts 
 	fi
 fi
 if [ ! -f ${HOME}/.secrets.bash ]; then
