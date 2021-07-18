@@ -33,7 +33,7 @@ if (type Xorg &> /dev/null); then
 	mkdir -p ${HOME}/.config/autostart/
 	echo "[Desktop Entry]
 Type=Application
-Exec=${HOME}/.xmodmap
+Exec=xmodmap ${HOME}/.xmodmap
 Hidden=false
 X-GNOME-Autostart-enabled=true
 Name=xmodmap
@@ -48,6 +48,7 @@ keysym Control_L = Caps_Lock
 keysym Caps_Lock = Control_L
 add Lock = Caps_Lock
 add Control = Control_L">${HOME}/.xmodmap
+
+xmodmap ${HOME}/.xmodmap
 fi
 
-echo "reload .bash_aliases"
