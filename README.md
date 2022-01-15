@@ -1,5 +1,5 @@
 # dotfiles
-## Preamble
+## Notes
 By default git-clone always needs a new directory to create the git working directory.
 git has seperate directories for working tree and git folder
 
