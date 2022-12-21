@@ -32,23 +32,23 @@ fi
 if (type Xorg &> /dev/null); then
 	mkdir -p ${HOME}/.config/autostart/
 	echo "[Desktop Entry]
-Type=Application
-Exec=xmodmap ${HOME}/.xmodmap
-Hidden=false
-X-GNOME-Autostart-enabled=true
-Name=xmodmap
-Comment=xmodmap script">${HOME}/.config/autostart/xmodmap.desktop
+	Type=Application
+	Exec=xmodmap ${HOME}/.xmodmap
+	Hidden=false
+	X-GNOME-Autostart-enabled=true
+	Name=xmodmap
+	Comment=xmodmap script">${HOME}/.config/autostart/xmodmap.desktop
 
-echo "!
-! Swap Caps_Lock and Control_L
-!
-remove Lock = Caps_Lock
-remove Control = Control_L
-keysym Control_L = Caps_Lock
-keysym Caps_Lock = Control_L
-add Lock = Caps_Lock
-add Control = Control_L">${HOME}/.xmodmap
+	echo "!
+	! Swap Caps_Lock and Control_L
+	!
+	remove Lock = Caps_Lock
+	remove Control = Control_L
+	keysym Control_L = Caps_Lock
+	keysym Caps_Lock = Control_L
+	add Lock = Caps_Lock
+	add Control = Control_L">${HOME}/.xmodmap
 
-xmodmap ${HOME}/.xmodmap
+	xmodmap ${HOME}/.xmodmap
 fi
 
