@@ -7,9 +7,6 @@ fi
 if [ -f ${HOME}/.local/bin ]; then
 	export PATH=${PATH}:${HOME}/.local/bin
 fi
-
-#Google Cloud Crendentialis
-export GOOGLE_APPLICATION_CREDENTIALS=${HOME}/.ssh/mytts.json
  
 #Aliases
 alias gid="git --work-tree=${HOME} --git-dir=${HOME}/.dotfiles"

@@ -26,6 +26,7 @@ if [ ! -f ${HOME}/.secrets.bash ]; then
 	# export S_userR=''
 	# export S_portR=''
 	# export S_serverR=''
+	echo ''
 	echo 'no .secrets.bash'	
 fi
 # xmodmap caps and ctrl swap with gnome autostart
@@ -51,4 +52,12 @@ if (type Xorg &> /dev/null); then
 
 	xmodmap ${HOME}/.xmodmap
 fi
+
+
+# set git credentials reminder
+echo ' 
+set your git credentials
+git config --global user.email "Your Email"
+git config --global user.name "Your Name"
+'
 
