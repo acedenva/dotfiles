@@ -10,7 +10,7 @@ fi
  
 #Aliases
 alias gid="git --work-tree=${HOME} --git-dir=${HOME}/.dotfiles"
-alias ssh-imko="ssh -i ${HOME}/.ssh/id_rsa -p ${secret_myServer_port} ${secret_myServer_user}@${secret_myServer_address}"
+alias ssh-imko="ssh -i ${HOME}/.ssh/id_rsa -p ${secrets_myServer_port} ${secrets_myServer_user}@${secrets_myServer_address}"
 alias sc="systemctl"
 alias scdr="systemctl daemon-reload"
 alias ns="netstat"
