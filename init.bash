@@ -7,35 +7,43 @@
 if [ ! -d ${HOME}/.vim/bundle/Vundle.vim ]; then
 	git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 fi
-# creating symlinks in home for WSL+Seafile 
+# creating symlinks in home on Windows & WSL environment and installed & synced seafile client
 if [[ -x $(which powershell.exe) ]]; then
 	winuser=$(powershell.exe -Command '[ENVIRONMENT]::GetEnvironmentVariable("Username")'\
 		| sed -r 's/\s+//g')
 	hostname=$(powershell.exe -Command '[ENVIRONMENT]::GetEnvironmentVariable("Computername")'\
 		| sed -r 's/\s+//g')
 	sdrive="/mnt/c/Users/${winuser}/Seafile/sdrive"
-	rchive="/mnt/c/Users/${winuser}/Seafile/rchive"
 	if [[ -d ${sdrive} ]]; then
 		if [[ ! -d ${sdrive}/keys/${hostname} ]]; then
 			mkdir -p ${sdrive}/keys/${hostname}
 		fi
 		rsync -rutv ${HOME}/.ssh ${sdrive}/keys/${hostname}/
 		rsync -rutv ${sdrive}/keys/${hostname}/.ssh ${HOME}/
-		ln -s ${sdrive}/keys/.secrets.bash ${HOME}/.secrets.bash
-		chmod -R 700 ${HOME}/.ssh ${HOME}/.secrets.bash
-		source ${HOME}/.secrets.bash
+		if [[ -f ${sdrive}/keys/.secrets.bash ]]; then
+			ln -s ${sdrive}/keys/.secrets.bash ${HOME}/.secrets.bash
+			chmod -R 700 ${HOME}/.ssh ${HOME}/.secrets.bash
+			source ${HOME}/.secrets.bash
+			# set git credentials
+			git config --global user.email "${secrets_git_email}"
+			git config --global user.name "${secrets_git_user}"
+		else
+			# Template .secrets.bash
+			# export secrets_myServer_user=''
+			# export secrets_myServer_address=''
+			# export secrets_myServer_port=''
+			#
+			# export secrets_git_email=''
+			# export secrets_git_user=''
+
+			echo ''
+			echo 'no .secrets.bash'	
+			echo ''
+			echo 'set your git credentials'
+			echo 'git config --global user.email "Your Email"'
+			echo 'git config --global user.name "Your Name"'
+		fi
 	fi
-fi
-if [ ! -f ${HOME}/.secrets.bash ]; then
-	# Template .secrets.bash
-	# export secret_myServer_user=''
-	# export secret_myServer_server=''
-	# export secret_myServer_port=''
-	#
-	# export secret_git_email=''
-	#
-	echo ''
-	echo 'no .secrets.bash'	
 fi
 # xmodmap caps and ctrl swap with gnome autostart
 if (type Xorg &> /dev/null); then
@@ -61,14 +69,6 @@ if (type Xorg &> /dev/null); then
 	xmodmap ${HOME}/.xmodmap
 fi
 
-
 #Git
 # change core editor to vim
 git config --global core.editor "vim"
-# set git credentials reminder
-echo ' 
-set your git credentials
-git config --global user.email "Your Email"
-git config --global user.name "Your Name"
-'
-
