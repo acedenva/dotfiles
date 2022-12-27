@@ -1,4 +1,4 @@
-#Secrets
+#Load .secrets.bash
 if [ -f ${HOME}/.secrets.bash ]; then
 	source ${HOME}/.secrets.bash
 fi
@@ -10,8 +10,7 @@ fi
  
 #Aliases
 alias gid="git --work-tree=${HOME} --git-dir=${HOME}/.dotfiles"
-alias ssh-imko="ssh -i ${HOME}/.ssh/id_rsa -p ${Sec_portRef} ${Sec_userRef}@${Sec_serverRef}"
-alias ssh-imko-rust="ssh -i ${HOME}/.ssh/id_rsa -p ${Sec_portRef} rust@${Sec_serverRef}"
+alias ssh-imko="ssh -i ${HOME}/.ssh/id_rsa -p ${secret_myServer_port} ${secure_myUser_user}@${secure_address}"
 alias sc="systemctl"
 alias scdr="systemctl daemon-reload"
 alias ns="netstat"

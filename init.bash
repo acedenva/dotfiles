@@ -1,9 +1,13 @@
 #!/bin/bash
 #
+# Todo:
+# create .secrets.bash with init.bash script
+# add removal option for my dotfiles with init.bash
+
 if [ ! -d ${HOME}/.vim/bundle/Vundle.vim ]; then
 	git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 fi
-# creating symlinks in home for WSL+Seafile  
+# creating symlinks in home for WSL+Seafile 
 if [[ -x $(which powershell.exe) ]]; then
 	winuser=$(powershell.exe -Command '[ENVIRONMENT]::GetEnvironmentVariable("Username")'\
 		| sed -r 's/\s+//g')
@@ -19,13 +23,17 @@ if [[ -x $(which powershell.exe) ]]; then
 		rsync -rutv ${sdrive}/keys/${hostname}/.ssh ${HOME}/
 		ln -s ${sdrive}/keys/.secrets.bash ${HOME}/.secrets.bash
 		chmod -R 700 ${HOME}/.ssh ${HOME}/.secrets.bash
+		source ${HOME}/.secrets.bash
 	fi
 fi
 if [ ! -f ${HOME}/.secrets.bash ]; then
-	# Template .secrets.bash -- maybe with sed
-	# export S_userR=''
-	# export S_portR=''
-	# export S_serverR=''
+	# Template .secrets.bash
+	# export secret_myServer_user=''
+	# export secret_myServer_server=''
+	# export secret_myServer_port=''
+	#
+	# export secret_git_email=''
+	#
 	echo ''
 	echo 'no .secrets.bash'	
 fi
@@ -54,6 +62,9 @@ if (type Xorg &> /dev/null); then
 fi
 
 
+#Git
+# change core editor to vim
+git config --global core.editor "vim"
 # set git credentials reminder
 echo ' 
 set your git credentials
