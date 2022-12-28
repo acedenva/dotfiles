@@ -37,11 +37,11 @@ if [[ -x $(which powershell.exe) ]]; then
 		fi
 		ln -s ${sdrive}/keys/.secrets.bash ${HOME}/.secrets.bash
 		chmod -R 700 ${HOME}/.ssh ${HOME}/.secrets.bash
-	else
-		echo 'set your git credentials'
-		echo 'git config --global user.email "Your Email"'
-		echo 'git config --global user.name "Your Name"'
 	fi
+else
+	echo 'set your git credentials'
+	echo 'git config --global user.email "Your Email"'
+	echo 'git config --global user.name "Your Name"'
 fi
 # xmodmap caps and ctrl swap with gnome autostart
 if (type Xorg &> /dev/null); then
