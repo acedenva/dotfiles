@@ -72,3 +72,4 @@ fi
 #Git
 # change core editor to vim
 git config --global core.editor "vim"
+git config --global credential.helper store
