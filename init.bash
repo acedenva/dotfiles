@@ -21,28 +21,26 @@ if [[ -x $(which powershell.exe) ]]; then
 		rsync -rutv ${HOME}/.ssh ${sdrive}/keys/${hostname}/
 		rsync -rutv ${sdrive}/keys/${hostname}/.ssh ${HOME}/
 		if [[ -f ${sdrive}/keys/.secrets.bash ]]; then
-			ln -s ${sdrive}/keys/.secrets.bash ${HOME}/.secrets.bash
-			chmod -R 700 ${HOME}/.ssh ${HOME}/.secrets.bash
 			source ${HOME}/.secrets.bash
 			# set git credentials
 			git config --global user.email "${secrets_git_email}"
 			git config --global user.name "${secrets_git_user}"
 		else
-			# Template .secrets.bash
-			# export secrets_myServer_user=''
-			# export secrets_myServer_address=''
-			# export secrets_myServer_port=''
-			#
-			# export secrets_git_email=''
-			# export secrets_git_user=''
-
+			#create empty secrets.bash
+			echo "export secrets_myServer_user=''" >> ${sdrive}/keys/.secrets.bash
+			echo "export secrets_myServer_address=''" >> ${sdrive}/keys/.secrets.bash
+			echo "export secrets_myServer_port=''" >> ${sdrive}/keys/.secrets.bash
+			echo "export secrets_git_email=''" >> ${sdrive}/keys/.secrets.bash
+			echo "export secrets_git_user=''" >> ${sdrive}/keys/.secrets.bash
 			echo ''
-			echo 'no .secrets.bash'	
-			echo ''
-			echo 'set your git credentials'
-			echo 'git config --global user.email "Your Email"'
-			echo 'git config --global user.name "Your Name"'
+			echo 'empty .secrets.bash created in sdrive/keys/'	
 		fi
+		ln -s ${sdrive}/keys/.secrets.bash ${HOME}/.secrets.bash
+		chmod -R 700 ${HOME}/.ssh ${HOME}/.secrets.bash
+	else
+		echo 'set your git credentials'
+		echo 'git config --global user.email "Your Email"'
+		echo 'git config --global user.name "Your Name"'
 	fi
 fi
 # xmodmap caps and ctrl swap with gnome autostart
