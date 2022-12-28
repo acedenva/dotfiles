@@ -5,7 +5,7 @@ git has seperate directories for working tree and git folder
 
 ## Initial Setup
 ```
-git clone --bare url ~/.dotfiles
+git clone --bare https://github.com/acedenva/dotfiles.git ~/.dotfiles
 cd ~
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME checkout
 ./init.bash
