@@ -1,4 +1,5 @@
 #!/bin/bash
+#	author:acdenva
 #
 # Todo:
 # create .secrets.bash with init.bash script
