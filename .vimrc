@@ -39,6 +39,7 @@ vmap <silent> <Leader>f "cy<ESC>:call Start('node',expand(@c))<CR>
 nmap <silent> <Leader>g :call Start('bash')<CR>
 vmap <silent> <Leader>g "by<ESC>:call Start('bash',expand(@b))<CR> 
 nmap <silent> <Leader><ESC> :silent! !bash -c 'pkill node; pkill chrome'<CR>:redraw!<CR>
+nmap <silent> <Leader><Tab> gg=G
 
 set nowrap
 set splitbelow
